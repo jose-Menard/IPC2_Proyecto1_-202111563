@@ -1,31 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pacientes>
-   <paciente nombre="Scarlett Johansson" edad="37" periodos="5">
+   <paciente nombre="Jose" edad="37" periodos="5" dimension="5">
       <nodos>
-         <nodo tipo="1" fila="0" columna="0"></nodo>
-         <nodo tipo="0" fila="0" columna="1"></nodo>
-         <nodo tipo="1" fila="0" columna="2"></nodo>
-      </nodos>
-   </paciente>
-   <paciente nombre="Sandra Bullock" edad="57" periodos="10">
-      <nodos>
-         <nodo tipo="0" fila="1" columna="0"></nodo>
          <nodo tipo="1" fila="1" columna="1"></nodo>
-         <nodo tipo="0" fila="1" columna="2"></nodo>
-      </nodos>
-   </paciente>
-   <paciente nombre="Anne Hathaway" edad="39" periodos="15">
-      <nodos>
-         <nodo tipo="1" fila="2" columna="0"></nodo>
+         <nodo tipo="1" fila="1" columna="2"></nodo>
          <nodo tipo="1" fila="2" columna="1"></nodo>
          <nodo tipo="1" fila="2" columna="2"></nodo>
+         <nodo tipo="1" fila="3" columna="3"></nodo>
+         <nodo tipo="1" fila="4" columna="4"></nodo>
       </nodos>
    </paciente>
-   <paciente nombre="Alec Baldwin" edad="63" periodos="20">
+   <paciente nombre="Juan" edad="57" periodos="10" dimension="6">
       <nodos>
-         <nodo tipo="0" fila="3" columna="0"></nodo>
-         <nodo tipo="0" fila="3" columna="1"></nodo>
-         <nodo tipo="0" fila="3" columna="2"></nodo>
+         <nodo tipo="1" fila="1" columna="1"></nodo>
+         <nodo tipo="1" fila="2" columna="2"></nodo>
+         <nodo tipo="1" fila="2" columna="3"></nodo>
+         <nodo tipo="1" fila="4" columna="3"></nodo>
+         <nodo tipo="1" fila="3" columna="1"></nodo>
+         <nodo tipo="1" fila="4" columna="2"></nodo>
+      </nodos>
+   </paciente>
+   <paciente nombre="Ana" edad="39" periodos="15" dimension="5">
+      <nodos>
+         <nodo tipo="1" fila="1" columna="3"></nodo>
+         <nodo tipo="1" fila="2" columna="2"></nodo>
+         <nodo tipo="1" fila="4" columna="1"></nodo>
+         <nodo tipo="1" fila="0" columna="2"></nodo>
+         <nodo tipo="1" fila="3" columna="0"></nodo>
+         <nodo tipo="1" fila="4" columna="1"></nodo>
+      </nodos>
+   </paciente>
+   <paciente nombre="Ale" edad="63" periodos="20" dimension="5">
+      <nodos>
+         <nodo tipo="1" fila="1" columna="0"></nodo>
+         <nodo tipo="1" fila="1" columna="2"></nodo>
+         <nodo tipo="1" fila="1" columna="0"></nodo>
+         <nodo tipo="1" fila="2" columna="3"></nodo>
+         <nodo tipo="1" fila="1" columna="3"></nodo>
+         <nodo tipo="1" fila="4" columna="3"></nodo>
       </nodos>
    </paciente>
 </pacientes>
