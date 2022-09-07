@@ -9,6 +9,8 @@ def menu():
     opcion = ''
     listaPacientes = ListaSimple()
     listaNodos= ListaDoble()
+    listaMalos= ListaDoble()
+
     while opcion != '8':
         print(Fore.CYAN + "-----------------MENU---------------")
         print(Fore.CYAN + "1 --- CARGAR DESDE ARCHIVO")
@@ -50,7 +52,7 @@ def menu():
                
         elif opcion == '3':
             nombre = input(Fore.BLUE + "Ingresar nombre de paciente: \n")
-            paciente = listaPacientes.buscarPacienteByNombre(nombre)
+            paciente = listaPacientes.buscarPacienteByNombre("Ana")
 
             if paciente is None:
                 print(Fore.RED + "El paciente no se encuentra registrado en la lista")
@@ -66,6 +68,7 @@ def menu():
         elif opcion == '7':
             nombrito = input(Fore.BLUE + "Ingresar nombre de paciente: \n")
             pacientito = listaPacientes.buscarPacienteByNombre(nombrito)
+       
 
             pacientito.nodo.graficar1()
         elif opcion == '4':
@@ -86,18 +89,8 @@ def menu():
                 print(Fore.RED + "El paciente no se encuentra registrado en la lista")
             else:
                 
-                for i in range (0,5):
-                    
-                    arregloFilas=[]
-                    arregloCol=[]
-                    arregloFilas.append(paciente.nodo.raiz.fila)
-                    arregloCol.append(paciente.nodo.raiz.columna)
-
-                    print("Las filas contagiadas son: ",arregloFilas)
-                    print("Las columnas contagiadas son: " ,arregloCol)
-
                 print(paciente.nodo.raiz.tipo)
-                while paciente.nodo.raiz.tipo !="0":
+                while paciente.nodo.raiz.tipo !="1":
                     filosa=paciente.nodo.raiz.fila
                     columnosa=paciente.nodo.raiz.columna
                     paciente.nodo.eliminar(filosa, columnosa)
@@ -110,8 +103,7 @@ def menu():
                    
             
             
-
-
+      
 def cargaArchivo(ruta):
     tree = ET.parse(ruta)
     pacientes = tree.getroot()
@@ -120,17 +112,83 @@ def cargaArchivo(ruta):
         nuevoPaciente = Paciente(pacienteXml.attrib['nombre'], pacienteXml.attrib['edad'], pacienteXml.attrib['periodos'], pacienteXml.attrib['dimension'])
         listaPacientesDesdeXml.append(nuevoPaciente)
         for nodoXml in pacienteXml.iter('nodo'):
-            nuevoNodo = Nodo(nodoXml.attrib['tipo'], nodoXml.attrib['fila'], nodoXml.attrib['columna'])
-            nuevoPaciente.nodo.append(nuevoNodo)
+            nuevoNodo = Nodo(str("1"), nodoXml.attrib['fila'], nodoXml.attrib['columna'])
+            nuevoPaciente.nodoMalo.append(nuevoNodo)
+            nuevoPaciente.contador=nuevoPaciente.contador+1
             
-            columnosa=nuevoNodo.columna
-            filosa=nuevoNodo.fila
-    
-            print("la columna es:" +columnosa)
-            print("la fila es es:" +filosa)
+        
     return listaPacientesDesdeXml
 
 
 
+def cargaArchivo(ruta):
+    tree = ET.parse(ruta)
+    pacientes = tree.getroot()
+    listaPacientesDesdeXml = ListaSimple()
+    for element in pacientes:
+        for m in element.iter("m"):
+            print(m.text)
+        for periodo in element.iter("periodos"):
+            print(periodo.text)
+
+        for datos in element.iter("datospersonales"):
+            for dat1 in datos.iter("nombre"):
+                print(dat1.text)
+            for dat2 in datos.iter("edad"):
+                print(dat2.text)
+       
+            nuevoPaciente = Paciente(dat1.text,dat2.text,periodo.text,m.text)
+            listaPacientesDesdeXml.append(nuevoPaciente)
+    
+    
+
+    
+        
+        for elementR in element.iter("celda"):
+
+            nuevoNodo=Nodo(str("1"), elementR.attrib['f'], elementR.attrib['c'])
+            nuevoPaciente.nodoMalo.append(nuevoNodo)
+            nuevoPaciente.contador=nuevoPaciente.contador+1
+
+    
+    return listaPacientesDesdeXml
+    
+
+'''
+def _init_(self, ruta)-> None:
+    self.ruta=ruta
+    self.tan=0
+    self.periodos=0
+    self.nombre=""
+    self.edad=""
+
+
+
+def cargaArchivo(self):
+    tree = ET.parse(self.ruta)
+    pacientes = tree.getroot()
+    listaPacientesDesdeXml = ListaSimple()
+    
+    for element in pacientes:
+        ListaSimpleInfectados=ListaSimple()
+        for elementR in element.iter("celda"):
+
+            nodoInfectado=Nodo(str("1"), elementR.attrib['f'], elementR.attrib['c'])
+            ListaSimpleInfectados.append(nodoInfectado)
+
+        for m in element.iter("m"):
+            self.tan=m.text
+        
+        for m in element.iter("periodos"):
+            self.periodos=m.text
+
+        for datos in element.iter("datospersonales"):
+            for dat in datos.iter("nombre"):
+                self.nombre=dat.text
+            for dat in datos.iter("edad"):
+                self.edad=dat.text
+      
+'''
+            
 menu()
 

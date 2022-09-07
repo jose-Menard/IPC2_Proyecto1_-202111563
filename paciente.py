@@ -7,6 +7,10 @@ class Paciente:
         self.periodos = periodos
         self.dimension = dimension
         self.nodo = ListaDoble()
+        self.nodoMalo = ListaDoble()
+        self.contador=0
+
+
         self.siguiente = None
 
         

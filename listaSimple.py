@@ -81,14 +81,35 @@ class ListaSimple:
             for i in range(0, dimensionita):
                 for k in range(0,dimensionita):
                 
-                    nuevoNodo = Nodo(str(0), str(k), str(i))
+                    nuevoNodo = Nodo(str(0), str(i), str(k))
                     pacientoso.nodo.append(nuevoNodo)
 
-                    sexoo=pacientoso.nodo.ultimo.columna
-
-                    print(sexoo)
+                    
                     
             print(Fore.GREEN + "Se llenaron los nodos con exito!! \n")
+
+            for f in range(0,pacientoso.contador):
+                pacientoso.nodo.modificar(pacientoso.nodoMalo.nodoActual())
+                pacientoso.nodoMalo.siguiente()
+            pacientoso.nodo.recorrer(dimensionita,pacientoso.nodoMalo)
+            pacientoso.nodo.print()
+
+                    
+                    
+            print(Fore.GREEN + "Se llenaron los nodos con exito!! \n")
+            pacientoso2 = self.buscarPacienteByNombre(pacientoso.nombre)
+            pacientoso2.nodo.setear0()
+            for f in range(0,pacientoso.contador):
+                pacientoso2.nodo.modificar(pacientoso.nodoMalo.nodoActual())
+                pacientoso2.nodoMalo.siguiente()
+            
+            pacientoso2.nodo.print()
+           
+            
+
+                
+
+        
 
            
             

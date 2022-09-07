@@ -1,16 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pacientes> 
-<paciente>
- <datospersonales>
- <nombre>$nombre</nombre>
- <edad>$edad</edad>
- </datospersonales>
- <periodos>5</periodos>
- <m>10</m>
- <rejilla>
- <celda f="1" c="1" />
- <celda f="1" c="2" />
- <celda f="2" c="1" />
- <celda f="2" c="2" />
- <celda f="3" c="3" />
- <celda f="4" c="4" />
+    <paciente>
+        <datospersonales>
+            <nombre>Ana</nombre>
+            <edad>55</edad>
+        </datospersonales>
+        <periodos>5</periodos>
+        <m>5</m>
+        <rejilla>
+            <celda f="1" c="1" />
+            <celda f="1" c="2" />
+            <celda f="2" c="1" />
+            <celda f="2" c="2" />
+            <celda f="4" c="4" />
+            <celda f="1" c="3" />
+            <celda f="1" c="3" />
+            <celda f="4" c="3" />
+        </rejilla>
+    </paciente>
+    <paciente>
+        <datospersonales>
+            <nombre>Juan</nombre>
+            <edad>20</edad>
+        </datospersonales>
+        <periodos>8</periodos>
+        <m>6</m>
+        <rejilla>
+            <celda f="0" c="1" />
+            <celda f="1" c="0" />
+            <celda f="2" c="1" />
+            <celda f="2" c="2" />
+            <celda f="4" c="0" />
+            <celda f="4" c="4" />
+            <celda f="5" c="4" />
+            <celda f="1" c="5" />
+        </rejilla>
+    </paciente>
+    <paciente>
+        <datospersonales>
+            <nombre>Jose</nombre>
+            <edad>25</edad>
+        </datospersonales>
+        <periodos>7</periodos>
+        <m>5</m>
+        <rejilla>
+            <celda f="1" c="1" />
+            <celda f="3" c="2" />
+            <celda f="2" c="4" />
+            <celda f="2" c="2" />
+            <celda f="2" c="2" />
+            <celda f="2" c="3" />
+            <celda f="3" c="2" />
+            <celda f="1" c="4" />
+        </rejilla>
+    </paciente>
+
+</pacientes>
+
+
