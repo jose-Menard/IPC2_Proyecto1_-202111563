@@ -49,7 +49,6 @@ class ListaDoble:
 
     def setear0(self):
         nodoAux = self.raiz
-        cadena = ''
     
         while True:
             
@@ -64,7 +63,7 @@ class ListaDoble:
 
     def modificar(self,nodoMalo):
         nodoAux = self.raiz
-        cadena = ''
+
     
         while True:
             
@@ -122,7 +121,7 @@ class ListaDoble:
                 cont =  cont+ self.noBorde(int(fila),int(columna)-1,dimensionita)                
                 cont =  cont+ self.noBorde(int(fila)-1,int(columna)-1,dimensionita)
                 # otro if para validar si es malo y el contador =3, seguiría siendo malo 
-                if cont == 2 or cont ==3:
+                if cont ==3:
                     nuevoNodo = Nodo("1",str(fila),str(columna))
                     nodoMalo.append(nuevoNodo)
                 if nodoAux.siguiente is not None:
@@ -180,4 +179,4 @@ class ListaDoble:
                 actual=actual.siguiente
         
 
-        print("se eliminó con exito, creo xd")
+        

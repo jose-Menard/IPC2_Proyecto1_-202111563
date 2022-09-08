@@ -73,7 +73,7 @@ class ListaSimple:
         file.close()
         os.system('dot -Tpng nodo.dot -o nodo.png')
     
-    def asignacionMatriz(self, dimensionita, pacientoso):
+    def asignacionMatriz(self, dimensionita, pacientoso, periodito):
             
         if pacientoso is None:
             print(Fore.RED + "El paciente no se encuentra registrado en la lista")
@@ -85,25 +85,26 @@ class ListaSimple:
                     pacientoso.nodo.append(nuevoNodo)
 
                     
-                    
-            print(Fore.GREEN + "Se llenaron los nodos con exito!! \n")
+            for i in range(0, periodito):
 
-            for f in range(0,pacientoso.contador):
-                pacientoso.nodo.modificar(pacientoso.nodoMalo.nodoActual())
-                pacientoso.nodoMalo.siguiente()
-            pacientoso.nodo.recorrer(dimensionita,pacientoso.nodoMalo)
-            pacientoso.nodo.print()
+                print(Fore.GREEN + "--------------------------------Periodo Actual------------------------------\n")
+
+                for f in range(0,pacientoso.contador):
+                    pacientoso.nodo.modificar(pacientoso.nodoMalo.nodoActual())
+                    pacientoso.nodoMalo.siguiente()
+                pacientoso.nodo.recorrer(dimensionita,pacientoso.nodoMalo)
+                pacientoso.nodo.print()
 
                     
                     
-            print(Fore.GREEN + "Se llenaron los nodos con exito!! \n")
-            pacientoso2 = self.buscarPacienteByNombre(pacientoso.nombre)
-            pacientoso2.nodo.setear0()
-            for f in range(0,pacientoso.contador):
-                pacientoso2.nodo.modificar(pacientoso.nodoMalo.nodoActual())
-                pacientoso2.nodoMalo.siguiente()
+                print(Fore.GREEN + "--------------------------------Nuevo Periodo------------------------------\n")
+                pacientoso2 = self.buscarPacienteByNombre(pacientoso.nombre)
+                pacientoso2.nodo.setear0()
+                for f in range(0,pacientoso.contador):
+                    pacientoso2.nodo.modificar(pacientoso.nodoMalo.nodoActual())
+                    pacientoso2.nodoMalo.siguiente()
             
-            pacientoso2.nodo.print()
+                pacientoso2.nodo.print()
            
             
 

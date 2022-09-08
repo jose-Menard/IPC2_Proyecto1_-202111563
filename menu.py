@@ -11,61 +11,37 @@ def menu():
     listaNodos= ListaDoble()
     listaMalos= ListaDoble()
 
-    while opcion != '8':
+    while opcion != '7':
         print(Fore.CYAN + "-----------------MENU---------------")
         print(Fore.CYAN + "1 --- CARGAR DESDE ARCHIVO")
         print(Fore.CYAN + "2 --- IMPRIMIR PACIENTE")
-        print(Fore.CYAN + "3 --- MOSTRAR NODOS POR PACIENTE")
-        print(Fore.CYAN + "4 --- RELLENAR REJILLA  DEL PACIENTE")
-        print(Fore.CYAN + "5 --- ARREGLAR REJILLA  DEL PACIENTE")
-        print(Fore.CYAN + "6 --- GRAFICAR LISTA DE PACIENTES")
-        print(Fore.CYAN + "7 --- GRAFICAR REJILLAS")
-        print(Fore.CYAN + "8 --- SALIR")
+        print(Fore.CYAN + "3 --- MOSTRAR NODOS INFECTADOS POR PACIENTE")
+        print(Fore.CYAN + "4 --- LEER REJILLA DEL PACIENTE")
+        print(Fore.CYAN + "5 --- GRAFICAR LISTA DE PACIENTES")
+        print(Fore.CYAN + "6 --- GRAFICAR REJILLAS")
+        print(Fore.CYAN + "7 --- SALIR")
 
         opcion = input(Fore.YELLOW + "Seleccione una opcion del menu \n")
          
-        '''
-        if opcion == '1':
-            c = input(Fore.BLUE + "Ingrese los datos del paciente en el siguiente formato nombre-edad-periodos-dimension\n")
-            datos = c.split('-')
-            nuevoPaciente = Paciente(datos[0], datos[1], datos[2], datos[3])
-            listaPacientes.append(nuevoPaciente)
-            print(Fore.GREEN + "Se registro el paciente con exito!! \n")
-
-        '''
+ 
         if opcion == '2':
             listaPacientes.print()
-
-         
- #       elif opcion == '3':
- #          nombre = input(Fore.BLUE + "Ingresar nombre de paciente: \n")
- #           paciente = listaPacientes.buscarPacienteByNombre(nombre)
- #
- #           if paciente is None:
- #              print(Fore.RED + "El paciente no se encuentra registrado en la lista")
- #           else:
- #               c = input(Fore.BLUE + "Ingrese los datos del nodo en el siguiente formato tipo-fila-columna\n") 
- #               datos = c.split('-')
- #               nuevoNodo = Nodo(datos[0], datos[1], datos[2])
- #               paciente.nodo.append(nuevoNodo)
- #               print(Fore.GREEN + "Se registro el nodo con exito!! \n")
-               
         elif opcion == '3':
             nombre = input(Fore.BLUE + "Ingresar nombre de paciente: \n")
-            paciente = listaPacientes.buscarPacienteByNombre("Ana")
+            paciente = listaPacientes.buscarPacienteByNombre(nombre)
 
             if paciente is None:
                 print(Fore.RED + "El paciente no se encuentra registrado en la lista")
             else:
-                paciente.nodo.print()
+                paciente.nodoMalo.print()
         elif opcion == '1':
             nombreArchivo = input(Fore.BLUE + "Ingrese el nombre del archivo XML\n")
             ruta = './' + nombreArchivo
             listaPacientes = cargaArchivo(ruta)
             print(Fore.GREEN + "Se cargo el archivo con exito!!\n")
-        elif opcion == '6':
+        elif opcion == '5':
             listaPacientes.graficar()
-        elif opcion == '7':
+        elif opcion == '6':
             nombrito = input(Fore.BLUE + "Ingresar nombre de paciente: \n")
             pacientito = listaPacientes.buscarPacienteByNombre(nombrito)
        
@@ -80,25 +56,9 @@ def menu():
             else:
                 print("la dimension de la rejilla del paciente es de: "+vars(pacientoso).get("dimension"))
                 dimensionita=int(vars(pacientoso).get("dimension"))
-                listaPacientes.asignacionMatriz(dimensionita,pacientoso)
-        elif opcion == '5':
-            nombre = input(Fore.BLUE + "Ingresar nombre de paciente: \n")
-            paciente = listaPacientes.buscarPacienteByNombre(nombre)
-    
-            if paciente is None:
-                print(Fore.RED + "El paciente no se encuentra registrado en la lista")
-            else:
-                
-                print(paciente.nodo.raiz.tipo)
-                while paciente.nodo.raiz.tipo !="1":
-                    filosa=paciente.nodo.raiz.fila
-                    columnosa=paciente.nodo.raiz.columna
-                    paciente.nodo.eliminar(filosa, columnosa)
+                periodito=int(vars(pacientoso).get("periodos"))
+                listaPacientes.asignacionMatriz(dimensionita,pacientoso,periodito)
 
-                #filosa = input(Fore.BLUE + "Ingrese la fila del Nodo a eliminar: \n")
-                #columnosa = input(Fore.BLUE + "Ingrese la columna del Nodo a eliminar: \n")
-                #paciente.nodo.eliminar(filosa, columnosa)
-                
                 
                    
             
@@ -154,41 +114,6 @@ def cargaArchivo(ruta):
     return listaPacientesDesdeXml
     
 
-'''
-def _init_(self, ruta)-> None:
-    self.ruta=ruta
-    self.tan=0
-    self.periodos=0
-    self.nombre=""
-    self.edad=""
-
-
-
-def cargaArchivo(self):
-    tree = ET.parse(self.ruta)
-    pacientes = tree.getroot()
-    listaPacientesDesdeXml = ListaSimple()
-    
-    for element in pacientes:
-        ListaSimpleInfectados=ListaSimple()
-        for elementR in element.iter("celda"):
-
-            nodoInfectado=Nodo(str("1"), elementR.attrib['f'], elementR.attrib['c'])
-            ListaSimpleInfectados.append(nodoInfectado)
-
-        for m in element.iter("m"):
-            self.tan=m.text
-        
-        for m in element.iter("periodos"):
-            self.periodos=m.text
-
-        for datos in element.iter("datospersonales"):
-            for dat in datos.iter("nombre"):
-                self.nombre=dat.text
-            for dat in datos.iter("edad"):
-                self.edad=dat.text
-      
-'''
             
 menu()
 
